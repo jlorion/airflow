@@ -1220,6 +1220,9 @@ def main():
     except Exception:
         log.exception("Top level error")
         exit(1)
+    finally:
+        if SUPERVISOR_COMMS and SUPERVISOR_COMMS.socket:
+            SUPERVISOR_COMMS.socket.close()
 
 
 if __name__ == "__main__":
